@@ -1,0 +1,45 @@
+</body>
+
+</html>
+
+<script type="text/javascript">
+    `<% if(flash.error && flash.error.length > 0 ) { %>`
+    new Noty({
+        type: 'error',
+        theme: "sunset",
+        text: "<%= flash.error %>",
+        timeout: 3500
+    }).show();
+    `<% } %>`
+
+    $(function() {
+        var todaydt = new Date();
+        $('#start_date').datepicker({
+            autoclose: true,
+            dateFormat: "M-dd-yy",
+            endDate: todaydt,
+            onSelect: function(date) {
+                var date2 = $('#start_date').datepicker('getDate');
+                $('#end_date').datepicker('option', 'minDate', date2);
+            }
+        });
+        $('#end_date').datepicker({
+            dateFormat: "M-dd-yy",
+
+        });
+    });
+
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            var form = document.getElementById('needs-validation');
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        }, false);
+    })();
+</script>

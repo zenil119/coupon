@@ -1,0 +1,35 @@
+/* For update_coupon.ejs */
+
+*{
+    box-sizing: border-box;
+}
+.page-title-box{
+    background-color: #f8f9fa;
+    padding: 20px 0;
+}
+.cs-container{
+    position: relative;
+    box-sizing: border-box;
+}
+.css-text{
+    z-index: 9999;
+    border: 0px;
+    clip: rect(1px,1px,1px,1px);
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    overflow: hidden;
+    padding: 0px;
+    white-space: nowrap;
+}
+#pr-div{
+    display:none;
+}
+.my-style{
+    width: 100%;
+    display: inline-block;
+}
+textarea{
+    height: 100px;
+    width: 100%;
+}

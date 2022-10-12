@@ -1,0 +1,181 @@
+<%- include('head') %>
+    <div class="content">
+        <% if(flash.error && flash.error.length > 0 ) { %>
+            <% } %>
+                <div class='container-fluid'>
+                    <div class="page-title-box">
+                        <div class="align-items-center row">
+                            <div class="col-sm-6">
+                                <h4 class="page-title">Add Coupon</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <form action="/addCoupon" method="post" id="needs-validation" novalidate>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-label" for="code">
+													Coupon Code
+													*
+											</label>
+                                                    <input name="code" placeholder="Code" type="text" id="code" class="form-control" autocomplete="off" value required>
+                                                    <div class="invalid-feedback">Code is required</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-label" for="active">Status</label>
+                                                    <select name="active" placeholder="Select Status" type="input" id="active" class="form-control">
+												<option value="true">Active</option>
+												<option value="false">Inactive</option>
+											</select>
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-label" for="start_date">
+													Start Date *
+											</label>
+                                                    <input name="start_date" type="text" placeholder="Enter Start Date" id='start_date' class="form-control" autocomplete="off" value required>
+
+                                                    <div class="invalid-feedback">Start date is required</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-label" for="end_date">
+													End Date *
+											</label>
+                                                    <input name="end_date" type="text" placeholder="Enter End Date" id='end_date' class="form-control" autocomplete="off" value required>
+
+                                                    <div class="invalid-feedback">End date is required</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="percentage" class="form-label">Percantage *</label>
+                                                    <input type="text" name="percentage" class="form-control" id="percentage" placeholder="Enter Percentage" autocomplete="off" value required>
+                                                    <div class="invalid-feedback" id="invalid-feedback">Percentage of discount is must be a number</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="upto_discount" class="form-label">Upto Discount *</label>
+                                                    <input type="text" name="upto_discount" class="form-control" id="percentage" placeholder="Enter Upto Discount" autocomplete="off" value required>
+                                                    <div class="invalid-feedback" id="invalid">Upto discount is must be a number</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="amount" class="form-label">Amount *</label>
+                                                    <input type="text" name="amount" id="amount" placeholder="Enter Amount" class="form-control" autocomplete="off" value required>
+                                                    <div class="invalid-feedback">Amount must be a number</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="maximum_no_of_use" class="form-label">Maximum No of Use *</label>
+                                                    <input type="text" name="maximum_no_of_use" id="maximum_no_of_use" placeholder="Maximum no of use" class="form-control" autocomplete="off" value required>
+                                                    <div class="invalid-feedback">Maximum no of use must be a number</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="minimum_order_amount" class="form-label">Minimum Order Amount *</label>
+                                                    <input type="text" name="minimum_order_amount" id="minimum_order_amount" placeholder="Minimum order amount" class="form-control" autocomplete="off" value required>
+                                                    <div class="invalid-feedback">Minimum order amount must be a number</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label for="maximum_use_per_customer" class="form-label">Maximum Use Per Customer *</label>
+                                                    <input type="text" name="maximum_use_per_customer" id="maximum_use_per_customer" placeholder="Maximum use Per customer" class="form-control" autocomplete="off" value required>
+                                                    <div class="invalid-feedback">Maximum use per customer must be a number</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-label" for="active">Customer</label>
+                                                    <select id="customer" name="customer_id" placeholder="Select Customer" type="input" class="form-control" value>
+												<%
+												var customer = [
+												{ 
+													id: 1, 
+													name: 'vijay',
+													email: 'v@gmail.com'
+												},
+												{ 
+													id: 2, 
+													name: 'zenil',
+													email: 'z@gmail.com'
+												},
+												{ 
+													id: 3, 
+													name: 'yash',
+													email: 'y@gmail.com'
+												}, 
+												{ 
+													id: 4,
+													name: 'milan',
+													email: 'm@gmail.com'
+												},
+												]; %>
+												<option>-- Select Customer --</option>
+												<% for(let x of customer) { %> 
+													<option value="<%= x.id %>"><%= x.name%> -- <%= x.email%> </option>
+												<% } %>
+											</select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label for="title" class="form-label">Title</label>
+                                                    <input type="text" placeholder="Title" class="form-control" name="title" id="title" autocomplete="off" value>
+                                                    <div class="invalid-feedback"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label for="description" class="form-label" value>Description</label>
+                                                    <textarea name="description" id="description" class="form-control" placeholder="Type here.." cols="30" rows="10"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label for="terms_and_condition" class="form-label">Terms And Condtions</label>
+                                                    <textarea name="terms_and_conoditions" placeholder="Type here.." id="terms_and_condition" cols="30" class="form-control" rows="10" value></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="button-items">
+                                    <input class="btn btn-primary btn-lg" value="Submit" type="submit">
+                                    <a href="/coupon_data" class="btn btn-secondary btn-lg" value="Cancle">Cancle</a>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    </div>
+    <%- include('script') %>
